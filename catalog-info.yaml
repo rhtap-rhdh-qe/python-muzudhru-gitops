@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: python-muzudhru-gitops
+  description: This is GitOps manifest for python-muzudhru   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=python-muzudhru
+    backstage.io/kubernetes-id: python-muzudhru 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: python-muzudhru
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:python-muzudhru
